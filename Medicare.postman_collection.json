@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "a38eeb50-ca25-487d-949c-7ba4c9f8b293",
+		"name": "Medicare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25561349"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/medicare/json/data/all/products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"  pm.test(\"Name is Cold Syrup\",function(){\r",
+							" console.log(jsonData[6].name);\r",
+							" pm.expect(jsonData[6].name).to.eql(\"Cold Syrup\");\r",
+							" });\r",
+							"\r",
+							"pm.test(\"UnitPrice is 50\",function(){\r",
+							"console.log(jsonData[6].unitPrice);\r",
+							"pm.expect(jsonData[6].unitPrice).to.eql(50);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Quantity is 50\",function(){\r",
+							"console.log(jsonData[6].quantity);\r",
+							"pm.expect(jsonData[6].quantity).to.eql(50);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/medicare/json/data/all/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicare",
+						"json",
+						"data",
+						"all",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/medicare/json/data/category/3/products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Brand is Sun Pharma\",function(){\r",
+							"    console.log(jsonData[1].brand);\r",
+							"    pm.expect(jsonData[1].brand).to.eql(\"Sun Pharma\");\r",
+							"});\r",
+							"pm.test(\"unitPrice is 48\",function(){\r",
+							"    console.log(jsonData[1].unitPrice);\r",
+							"    pm.expect(jsonData[1].unitPrice).to.eql(48);    \r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/medicare/json/data/category/3/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicare",
+						"json",
+						"data",
+						"category",
+						"3",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
